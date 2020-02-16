@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 #build prod app
-RUN ["npm", "run", "build"]
+RUN npm run build
 
 #start nginx image
 FROM nginx
