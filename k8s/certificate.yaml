@@ -11,10 +11,10 @@ spec:
   dnsNames:
     - calcdev.com
     - www.calcdev.com
-  acme:
-    config:
-      - http01:
-          ingressClass: nginx
-        domains:
-          - calcdev.com
-          - www.calcdev.com
+  # acme:
+  #   config:
+  #     - http01:
+  #         ingressClass: nginx
+  #       domains:
+  #         - calcdev.com
+  #         - www.calcdev.com
