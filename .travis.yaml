@@ -3,6 +3,13 @@ sudo: required
 services:
   - docker
 
+env:
+  global:
+    # used to set unique docker image version
+    - SHA=$(git rev-parse HEAD)
+    # make sure travis doesn't run into google cloud sdk prompts
+    - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+
 before_install:
   # get credentials for gcloud
   - openssl aes-256-cbc -K $encrypted_9f3b5599b056_key -iv $encrypted_9f3b5599b056_iv -in service-account.json.enc -out service-account.json -d
@@ -21,3 +28,9 @@ before_install:
 
 script:
   - docker run -e CI=true dmaesj/react-test npm run test
+
+deploy:
+  provider: script
+  script: bash ./deploy.sh
+  on:
+    branch: master
