@@ -24,7 +24,7 @@ spec:
           volumeMounts:
             - name: postgres-storage
               mountPath: /var/lib/postgresql/data
-              subPath: postgres
+              # subPath: postgres
           env:
             - name: POSTGRES_HOST_AUTH_METHOD
               value: trust
@@ -33,5 +33,3 @@ spec:
                 secretKeyRef:
                   name: pgpassword
                   key: PGPASSWORD
-
-
